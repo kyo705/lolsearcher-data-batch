@@ -28,7 +28,7 @@ public enum GamePosition {
     private static final Map<Integer, GamePosition> BY_CODE =
             Stream.of(values()).collect(Collectors.toMap(GamePosition::getCode, e -> e));
 
-    public static final GamePosition valueOfCode(int code){
+    public static GamePosition valueOfCode(int code){
         return BY_CODE.get(code);
     }
 }

@@ -195,10 +195,11 @@ public class JpaChampEnemyStatsService implements JpaChampStatsService {
 
     private ChampPositionStats createChampPositionStats(ChampBanStats champBanStats, ChampionEnemyStatsDto dto) {
 
-        return ChampPositionStats.builder()
-                .champBanStatsId(champBanStats)
-                .positionId(dto.getPositionId())
-                .build();
+        ChampPositionStats positionStat = new ChampPositionStats();
+        positionStat.setPositionId(dto.getPositionId());
+        positionStat.setChampBanStatsId(champBanStats);
+
+        return positionStat;
     }
 
     private ChampEnemyStats findChampEnemyStats(ChampPositionStats champPositionStats, ChampionEnemyStatsDto dto) {
@@ -212,12 +213,13 @@ public class JpaChampEnemyStatsService implements JpaChampStatsService {
 
     private ChampEnemyStats createChampEnemyStats(ChampPositionStats champPositionStats, ChampionEnemyStatsDto dto) {
 
-        return ChampEnemyStats.builder()
-                .champPositionStatsId(champPositionStats)
-                .enemyChampionId(dto.getEnemyChampionId())
-                .wins(dto.getWins())
-                .losses(dto.getLosses())
-                .build();
+        ChampEnemyStats enemyStat = new ChampEnemyStats();
+        enemyStat.setChampPositionStatsId(champPositionStats);
+        enemyStat.setEnemyChampionId(dto.getEnemyChampionId());
+        enemyStat.setWins(dto.getWins());
+        enemyStat.setLosses(dto.getLosses());
+
+        return enemyStat;
     }
 
     private void updateChampEnemyStats(ChampEnemyStats champEnemyStats, ChampionEnemyStatsDto dto) {

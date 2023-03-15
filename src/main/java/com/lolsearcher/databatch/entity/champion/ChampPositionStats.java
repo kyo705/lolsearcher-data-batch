@@ -3,6 +3,7 @@ package com.lolsearcher.databatch.entity.champion;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import static com.lolsearcher.databatch.constant.LolSearcherConstants.MAX_CHAMPI
 
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(indexes = {@Index(columnList = "champBanStatsId, positionId", unique = true)})
@@ -29,7 +31,6 @@ public class ChampPositionStats {
 	private int positionId;
 	private long wins;
 	private long losses;
-	private long bans;
 
 	@BatchSize(size = MAX_CHAMPION_COUNT)
 	@OneToMany(mappedBy = "champPositionStatsId", fetch = FetchType.EAGER)

@@ -145,12 +145,13 @@ public class JpaChampPositionStatsService implements JpaChampStatsService {
 
     private ChampPositionStats createChampPositionStats(ChampBanStats champBanStats, ChampionPositionStatsDto dto){
 
-        return ChampPositionStats.builder()
-                .champBanStatsId(champBanStats)
-                .positionId(dto.getPositionId())
-                .wins(dto.getWins())
-                .losses(dto.getLosses())
-                .build();
+        ChampPositionStats positionStat = new ChampPositionStats();
+        positionStat.setChampBanStatsId(champBanStats);
+        positionStat.setPositionId(dto.getPositionId());
+        positionStat.setWins(dto.getWins());
+        positionStat.setLosses(dto.getLosses());
+
+        return positionStat;
     }
 
     private void updateChampPositionStats(ChampPositionStats champPositionStats, ChampionPositionStatsDto dto) {

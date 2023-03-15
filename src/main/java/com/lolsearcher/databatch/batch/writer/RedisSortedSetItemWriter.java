@@ -16,7 +16,7 @@ public class RedisSortedSetItemWriter implements ItemWriter<ChampBanStats> {
     private ChampStatsScoreService scoreService;
 
     @Override
-    public void write(List<? extends ChampBanStats> items) throws Exception {
+    public void write(List<? extends ChampBanStats> items) {
 
         List<ChampionStatsDto> championStatsDtos = getAllChampionStats(items);
 

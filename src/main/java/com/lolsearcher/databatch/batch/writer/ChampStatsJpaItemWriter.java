@@ -8,12 +8,13 @@ import com.lolsearcher.databatch.service.stat.JpaChampStatsService;
 import org.springframework.batch.item.database.JpaItemWriter;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class ChampStatsJpaItemWriter extends JpaItemWriter<Match> {
 
-    private List<JpaChampStatsService> champStatsServices;
+    private final List<JpaChampStatsService> champStatsServices = new ArrayList<>();
 
     @Override
     public void write(List<? extends Match> items) {

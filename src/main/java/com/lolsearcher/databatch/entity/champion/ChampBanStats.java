@@ -3,6 +3,7 @@ package com.lolsearcher.databatch.entity.champion;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import static com.lolsearcher.databatch.constant.LolSearcherConstants.THE_NUMBER
 
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Table(indexes = {@Index(columnList = "gameVersion, queueId, championId", unique = true)})
 @Entity

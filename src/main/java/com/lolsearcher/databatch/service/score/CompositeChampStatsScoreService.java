@@ -21,7 +21,7 @@ public class CompositeChampStatsScoreService implements ChampStatsScoreService {
                 service.saveChampionStats(championStatsDto);
                 return;
             } catch (IllegalArgumentException e) {
-                continue;
+                log.info(e.getMessage());
             }
         }
         String message = String.format("입력 파라미터 타입 : %s 에 적절한 ChampStatsScoreService가 없음", championStatsDto.getClass());

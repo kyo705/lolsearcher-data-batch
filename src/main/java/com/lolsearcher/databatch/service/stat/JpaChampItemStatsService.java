@@ -160,10 +160,11 @@ public class JpaChampItemStatsService implements JpaChampStatsService {
 
     private ChampPositionStats createChampPositionStats(ChampBanStats champBanStats, ChampionItemStatsDto dto) {
 
-        return ChampPositionStats.builder()
-                .champBanStatsId(champBanStats)
-                .positionId(dto.getPositionId())
-                .build();
+        ChampPositionStats positionStat = new ChampPositionStats();
+        positionStat.setPositionId(dto.getPositionId());
+        positionStat.setChampBanStatsId(champBanStats);
+
+        return positionStat;
     }
 
     private ChampItemStats findChampItemStats(ChampPositionStats champPositionStats, ChampionItemStatsDto dto) {
@@ -177,12 +178,13 @@ public class JpaChampItemStatsService implements JpaChampStatsService {
 
     private ChampItemStats createChampItemStats(ChampPositionStats champPositionStats, ChampionItemStatsDto dto) {
 
-        return ChampItemStats.builder()
-                .champPositionStatsId(champPositionStats)
-                .itemId(dto.getItemId())
-                .wins(dto.getWins())
-                .losses(dto.getLosses())
-                .build();
+        ChampItemStats itemStat = new ChampItemStats();
+        itemStat.setChampPositionStatsId(champPositionStats);
+        itemStat.setItemId(dto.getItemId());
+        itemStat.setWins(dto.getWins());
+        itemStat.setLosses(dto.getLosses());
+
+        return itemStat;
     }
 
     private void updateChampItemStats(ChampItemStats champItemStats, ChampionItemStatsDto dto) {

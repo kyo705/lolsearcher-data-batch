@@ -24,7 +24,7 @@ public enum GameResultStatus {
     private static final Map<Integer, GameResultStatus> BY_NUMBER =
             Stream.of(values()).collect(Collectors.toMap(GameResultStatus::getCode, e -> e));
 
-    public static final GameResultStatus valueOfCode(int code){
+    public static GameResultStatus valueOfCode(int code){
         return BY_NUMBER.get(code);
     }
 }

@@ -3,11 +3,13 @@ package com.lolsearcher.databatch.entity.champion;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(indexes = {@Index(columnList = "champPositionStatsId, itemId")})
